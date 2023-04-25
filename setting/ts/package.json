@@ -9,6 +9,7 @@
   "author": "ZeroCho",
   "license": "MIT",
   "dependencies": {
+    "@emotion/babel-plugin": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@loadable/component": "^5.15.3",
