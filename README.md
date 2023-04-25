@@ -1,4 +1,18 @@
-백엔드 강좌 강의교안은 [여기](https://github.com/ZeroCho/sleact/blob/master/nest-typeorm/README.md)
+백엔드 [여기](https://github.com/ZeroCho/sleact/blob/master/nest-typeorm/README.md)
+
+실행하기
+
+1. back에 .env 를 만들고
+
+```
+COOKIE_SECRET=cookienyamnyam
+MYSQL_PASSWORD=디비비번
+```
+
+이렇게 세팅
+
+1. 터미널 cd back => npm run dev
+2. 새로운 터미널 창 cd setting => cd ts => npm run dev
 
 # 백그라운드 세팅
 
