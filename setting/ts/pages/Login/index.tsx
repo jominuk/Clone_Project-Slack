@@ -2,12 +2,12 @@ import React, { useState, useCallback } from 'react';
 import useInput from '@pages/hooks/useinput';
 import axios from 'axios';
 import { Error, Form, Label, Input, LinkContainer, Button, Header } from '@pages/SignUp/styles';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import useSWR from 'swr';
 import fetcher from '@utils/fetcher';
 
-const LogIn = () => {
-  const { data, error, mutate } = useSWR('/api/users', fetcher);
+const Login = () => {
+  const { data, error, revalidate } = useSWR('http://localhost:3095/api/users', fetcher);
   //주소를 fetcher로 옮겨주고 실제로 주소를 어떻게 처리할지 정해줌
 
   const [logInError, setLogInError] = useState(false);
@@ -19,14 +19,14 @@ const LogIn = () => {
       setLogInError(false);
       axios
         .post(
-          '/api/users/login',
+          'http://localhost:3095/api/users/login',
           { email, password },
           {
             withCredentials: true,
           },
         )
         .then(() => {
-          mutate();
+          revalidate();
         })
         .catch((error) => {
           setLogInError(error.response?.data?.statusCode === 401);
@@ -35,15 +35,14 @@ const LogIn = () => {
     [email, password],
   );
 
-  if (data) {
-    return <Navigate to="/workspace/channel" />;
+  if (data === undefined) {
+    return <div> 로딩 중 </div>;
   }
+  // 화면 전환하면서 페이지 깜빡임 현상을 줄이기 위함
 
-  // console.log(error, userData);
-  // if (!error && userData) {
-  //   console.log('로그인됨', userData);
-  //   return <Redirect to="/workspace/sleact/channel/일반" />;
-  // }
+  if (data) {
+    return <Redirect to="/workspace/channel" />;
+  }
 
   return (
     <div id="container">
@@ -72,4 +71,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Login;
