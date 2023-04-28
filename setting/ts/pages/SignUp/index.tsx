@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Success, Error, Form, Label, Input, LinkContainer, Button, Header } from './styles';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
-import useInput from '@pages/hooks/useinput';
+import useInput from '@hooks/useinput';
 import useSWR from 'swr';
 import fetcher from '@utils/fetcher';
 

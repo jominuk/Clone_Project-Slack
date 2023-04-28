@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import useInput from '@pages/hooks/useinput';
+import useInput from '@hooks/useinput';
 import axios from 'axios';
 import { Error, Form, Label, Input, LinkContainer, Button, Header } from '@pages/SignUp/styles';
 import { Link, Redirect } from 'react-router-dom';
