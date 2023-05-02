@@ -44,7 +44,7 @@ const Login = () => {
   // 화면 전환하면서 페이지 깜빡임 현상을 줄이기 위함
 
   if (data) {
-    return <Redirect to="/workspace/channel" />;
+    return <Redirect to="/workspace/sleact/channel/일반" />;
   }
 
   return (
