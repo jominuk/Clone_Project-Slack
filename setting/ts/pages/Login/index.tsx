@@ -7,7 +7,7 @@ import useSWR from 'swr';
 import fetcher from '@utils/fetcher';
 
 const Login = () => {
-  const { data, mutate } = useSWR('http://localhost:3095/api/users', fetcher, {
+  const { data, mutate } = useSWR('/api/users', fetcher, {
     dedupingInterval: 2000, //2초
     // stealtime과 비슷한 느낌이라 다시 정리 해볼 것
   });
@@ -22,7 +22,7 @@ const Login = () => {
       setLogInError(false);
       axios
         .post(
-          'http://localhost:3095/api/users/login',
+          '/api/users/login',
           { email, password },
           {
             withCredentials: true,
