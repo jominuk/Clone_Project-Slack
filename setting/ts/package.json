@@ -32,6 +32,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "rect-app": "^1.0.0",
+    "socket.io-client": "^2.5.0",
     "swr": "^0.4.2",
     "typescript": "^4.9.5"
   },
@@ -47,6 +48,7 @@
     "@types/node": "^16.18.24",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "@types/socket.io-client": "^3.0.0",
     "@types/webpack": "^5.28.1",
     "@types/webpack-dev-server": "^4.7.2",
     "babel-loader": "^8.3.0",

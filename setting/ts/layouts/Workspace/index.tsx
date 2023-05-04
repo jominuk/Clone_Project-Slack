@@ -35,6 +35,7 @@ import InviteChannelModal from '@components/InviteChannelModal';
 import DMList from '@components/DMList';
 import ChannelList from '@components/ChannelList';
 import ChatList from '@components/ChatList';
+import useSocket from '@hooks/useSocket';
 
 const Channel = loadable(() => import('@pages/Channel'));
 const DirectMessage = loadable(() => import('@pages/DirectMessage'));
@@ -56,6 +57,14 @@ const Workspace: VFC = () => {
   const [showCreateChannelModal, setShowCreateChannelModal] = useState(false);
   const [showInviteWorkspaceModal, setShowInviteWorkspaceModal] = useState(false);
   const [showInviteChannelModal, setShowInviteChannelModal] = useState(false);
+
+  const [socket, disconnect] = useSocket(workspace);
+
+  useEffect(() => {
+    socket.on('message');
+    socket.emit();
+    disconnect();
+  });
 
   // useEffect(() => {
   //   if (channelData && userData && socket) {
