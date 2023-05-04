@@ -1,4 +1,4 @@
-import React, { VFC, useCallback, useState } from 'react';
+import React, { VFC, useCallback, useState, useEffect } from 'react';
 import useSWR from 'swr';
 import gravatar from 'gravatar';
 import fetcher from '@utils/fetcher';
@@ -57,6 +57,19 @@ const Workspace: VFC = () => {
   const [showInviteWorkspaceModal, setShowInviteWorkspaceModal] = useState(false);
   const [showInviteChannelModal, setShowInviteChannelModal] = useState(false);
 
+  // useEffect(() => {
+  //   if (channelData && userData && socket) {
+  //     console.log(socket);
+  //     socket.emit('login', { id: userData.id, channels: channelData.map((v) => v.id) });
+  //   }
+  // }, [socket, channelData, userData]);
+
+  // useEffect(() => {
+  //   return () => {
+  //     disconnect();
+  //   };
+  // }, [workspace, disconnect]);
+
   const onLogout = useCallback(() => {
     axios
       .post('/api/users/logout', null, {
@@ -65,7 +78,7 @@ const Workspace: VFC = () => {
       .then(() => {
         mutate(false, false);
       });
-  }, []);
+  }, [mutate]);
 
   const onClickUserProfile = useCallback((e) => {
     e.stopPropagation();
