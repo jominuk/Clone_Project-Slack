@@ -61,23 +61,17 @@ const Workspace: VFC = () => {
   const [socket, disconnect] = useSocket(workspace);
 
   useEffect(() => {
-    socket.on('message');
-    socket.emit();
-    disconnect();
-  });
+    if (channelData && userData && socket) {
+      console.log(socket);
+      socket.emit('login', { id: userData.id, channels: channelData.map((v) => v.id) });
+    }
+  }, [socket, channelData, userData]);
 
-  // useEffect(() => {
-  //   if (channelData && userData && socket) {
-  //     console.log(socket);
-  //     socket.emit('login', { id: userData.id, channels: channelData.map((v) => v.id) });
-  //   }
-  // }, [socket, channelData, userData]);
-
-  // useEffect(() => {
-  //   return () => {
-  //     disconnect();
-  //   };
-  // }, [workspace, disconnect]);
+  useEffect(() => {
+    return () => {
+      disconnect();
+    };
+  }, [workspace, disconnect]);
 
   const onLogout = useCallback(() => {
     axios

@@ -6,10 +6,10 @@ import useSWR from 'swr';
 import { useParams } from 'react-router';
 import fetcher from '@utils/fetcher';
 import ChatBox from '@components/ChatBox';
-import ChatList from '@components/ChatList';
 import useInput from '@hooks/useinput';
 import axios from 'axios';
 import { IDM } from '@typings/db';
+import ChatList from '@components/ChatList';
 
 const DirectMessage = () => {
   const { workspace, id } = useParams<{ workspace: string; id: string }>();
@@ -32,7 +32,7 @@ const DirectMessage = () => {
       console.log('chat');
       if (chat?.trim()) {
         axios
-          .post(`/api/workspace/${workspace}/dm/${id}/chats`, {
+          .post(`/api/workspaces/${workspace}/dms/${id}/chats`, {
             content: chat,
           })
           .then(() => {
