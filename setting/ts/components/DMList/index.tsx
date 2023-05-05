@@ -1,3 +1,4 @@
+// import useSocket from '@hooks/useSocket';
 import { CollapseButton } from '@components/DMList/styles';
 import useSocket from '@hooks/useSocket';
 import { IUser, IUserWithOnline } from '@typings/db';
@@ -30,6 +31,7 @@ const DMList: FC = () => {
   }, []);
 
   useEffect(() => {
+    console.log('DMList: workspace 바꼈다', workspace);
     setOnlineList([]);
   }, [workspace]);
 
@@ -76,7 +78,6 @@ const DMList: FC = () => {
                 />
                 <span>{member.nickname}</span>
                 {member.id === userData?.id && <span> (나)</span>}
-                {/* {count > 0 && < span className='count'>{count}</span>} */}
               </NavLink>
             );
           })}
