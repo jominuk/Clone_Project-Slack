@@ -34,7 +34,6 @@ import InviteWorkspaceModal from '@components/InviteWorkspaceModal';
 import InviteChannelModal from '@components/InviteChannelModal';
 import DMList from '@components/DMList';
 import ChannelList from '@components/ChannelList';
-import ChatList from '@components/ChatList';
 import useSocket from '@hooks/useSocket';
 
 const Channel = loadable(() => import('@pages/Channel'));

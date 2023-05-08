@@ -1,4 +1,3 @@
-// import useSocket from '@hooks/useSocket';
 import { CollapseButton } from '@components/DMList/styles';
 import useSocket from '@hooks/useSocket';
 import { IUser, IUserWithOnline } from '@typings/db';

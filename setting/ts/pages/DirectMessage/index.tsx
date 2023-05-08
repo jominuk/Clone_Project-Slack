@@ -22,7 +22,7 @@ const DirectMessage = () => {
     data: chatData,
     mutate: mutateChat,
     revalidate,
-  } = useSWR<IDM[]>(`/api/workspace/${workspace}/dms/${id}/chats?perPage=20&page=1`, fetcher);
+  } = useSWR<IDM[]>(`/api/workspaces/${workspace}/dms/${id}/chats?perPage=20&page=1`, fetcher);
 
   const [chat, onChangeChat, setChat] = useInput('');
 

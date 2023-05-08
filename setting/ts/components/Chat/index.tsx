@@ -1,14 +1,15 @@
-import { IDM, IChat } from '@typings/db';
-import React, { VFC, memo, useMemo } from 'react';
+import { IDM } from '@typings/db';
+import React, { VFC } from 'react';
 import gravatar from 'gravatar';
 import { ChatWrapper } from './styles';
+import dayjs from 'dayjs';
 
 interface Props {
-  data: IDM | IChat;
+  data: IDM;
 }
 
 const Chat: VFC<Props> = ({ data }) => {
-  const user = 'Sender' in data ? data.Sender : data.User;
+  const user = data.Sender;
 
   return (
     <ChatWrapper>
@@ -18,7 +19,7 @@ const Chat: VFC<Props> = ({ data }) => {
       <div className="chat-text">
         <div className="chat-user">
           <b>{user.nickname}</b>
-          <span>{data.createdAt}</span>
+          <span>{dayjs(data.createdAt).format('h:mm A')}</span>
         </div>
         <p>{data.content}</p>
       </div>
