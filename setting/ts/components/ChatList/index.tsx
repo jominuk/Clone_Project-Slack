@@ -1,4 +1,4 @@
-import React, { useCallback, forwardRef } from 'react';
+import React, { useCallback, forwardRef, MutableRefObject } from 'react';
 import { ChatZone, Section, StickyHeader } from './styles';
 import { IDM } from '@typings/db';
 import Chat from '@components/Chat';
@@ -11,19 +11,24 @@ interface Props {
   isReachingEnd: boolean;
 }
 
-const ChatList = forwardRef<Scrollbars, Props>(({ chatSections, setSize, isEmpty, isReachingEnd }, ref) => {
+const ChatList = forwardRef<Scrollbars, Props>(({ chatSections, setSize, isEmpty, isReachingEnd }, scrollRef) => {
   const onScroll = useCallback((values) => {
     if (values.scrollTop === 0 && !isReachingEnd) {
       console.log('가장 위');
       setSize((prevSize) => prevSize + 1).then(() => {
         //스크롤 위치 유지
+        const current = (scrollRef as MutableRefObject<Scrollbars>)?.current;
+        if (current) {
+          current.scrollTop(current.getScrollHeight() - values.scrollHeight);
+          console.log(current?.getScrollHeight(), values.scrollHeight);
+        }
       });
     }
   }, []);
 
   return (
     <ChatZone>
-      <Scrollbars autoHide ref={ref} onScrollFrame={onScroll}>
+      <Scrollbars autoHide ref={scrollRef} onScrollFrame={onScroll}>
         {Object.entries(chatSections).map(([date, chats]) => {
           return (
             <Section className={`section-${date}`} key={date}>
