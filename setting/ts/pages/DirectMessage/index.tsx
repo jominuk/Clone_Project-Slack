@@ -12,7 +12,6 @@ import { IDM } from '@typings/db';
 import ChatList from '@components/ChatList';
 import makeSection from '@utils/makeSection';
 import Scrollbars from 'react-custom-scrollbars';
-import { Socket } from 'socket.io-client';
 import useSocket from '@hooks/useSocket';
 
 const DirectMessage = () => {

@@ -1,12 +1,12 @@
 import Modal from '@components/Modal';
 import useInput from '@hooks/useinput';
 import { Button, Input, Label } from '@pages/SignUp/styles';
-import { IUser } from '@typings/db';
-import fetcher from '@utils/fetcher';
 import axios from 'axios';
 import React, { FC, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
+import { IUser } from '@typings/db';
+import fetcher from '@utils/fetcher';
 import useSWR from 'swr';
 
 interface Props {

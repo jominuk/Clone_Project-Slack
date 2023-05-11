@@ -9,12 +9,7 @@ import useSWR from 'swr';
 
 const DMList: FC = () => {
   const { workspace } = useParams<{ workspace?: string }>();
-  const {
-    data: userData,
-    error,
-    revalidate,
-    mutate,
-  } = useSWR<IUser>('/api/users', fetcher, {
+  const { data: userData } = useSWR<IUser>('/api/users', fetcher, {
     dedupingInterval: 2000, // 2초
   });
   const { data: memberData } = useSWR<IUserWithOnline[]>(
@@ -38,11 +33,7 @@ const DMList: FC = () => {
     socket?.on('onlineList', (data: number[]) => {
       setOnlineList(data);
     });
-    // socket?.on('dm', onMessage);
-    // console.log('socket on dm', socket?.hasListeners('dm'), socket);
     return () => {
-      // socket?.off('dm', onMessage);
-      // console.log('socket off dm', socket?.hasListeners('dm'));
       socket?.off('onlineList');
     };
   }, [socket]);

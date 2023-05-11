@@ -44,12 +44,11 @@ const SignUp = () => {
         // 그 이유는 이전 단계의 자료가 남아있을 수 있기 때문이다.
         axios
           .post('/api/users', {
-            //webpack.config.ts에 있는 proxy 설정을 프론트엔드에서 api주소 요청을 바꿔서 보낸다는 설정을 해둿음
             email,
             nickname,
             password,
           })
-          .then((res) => {
+          .then(() => {
             setSignUpSuccess(true);
           })
           .catch((err) => {
@@ -58,12 +57,6 @@ const SignUp = () => {
           .finally(() => {});
         //성공하던 실패하든 무조건 실행하고 싶을 때 finally를 사용
       }
-      // 이것도 가능
-      // try {} catch (err) {
-
-      // } finally {
-
-      // }
     },
     [email, nickname, password, passwordCheck],
   );

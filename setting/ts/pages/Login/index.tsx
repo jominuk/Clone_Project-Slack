@@ -9,9 +9,7 @@ import fetcher from '@utils/fetcher';
 const Login = () => {
   const { data, mutate } = useSWR('/api/users', fetcher, {
     dedupingInterval: 2000, //2초
-    // stealtime과 비슷한 느낌이라 다시 정리 해볼 것
   });
-  //주소를 fetcher로 옮겨주고 실제로 주소를 어떻게 처리할지 정해줌
 
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');

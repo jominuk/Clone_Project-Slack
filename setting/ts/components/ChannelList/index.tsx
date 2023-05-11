@@ -1,4 +1,3 @@
-// import useSocket from '@hooks/useSocket';
 import { CollapseButton } from '@components/DMList/styles';
 import { IChannel, IUser } from '@typings/db';
 import fetcher from '@utils/fetcher';
@@ -9,13 +8,8 @@ import useSWR from 'swr';
 
 const ChannelList: FC = () => {
   const { workspace } = useParams<{ workspace?: string }>();
-  // const [socket] = useSocket(workspace);
-  const {
-    data: userData,
-    error,
-    revalidate,
-    mutate,
-  } = useSWR<IUser>('/api/users', fetcher, {
+
+  const { data: userData } = useSWR<IUser>('/api/users', fetcher, {
     dedupingInterval: 2000, // 2초
   });
 

@@ -46,8 +46,6 @@ const Workspace: VFC = () => {
 
   const { data: channelData } = useSWR<IChannel[]>(userData ? `/api/workspaces/${workspace}/channels` : null, fetcher);
 
-  const { data: mamberData } = useSWR<IUser[]>(userData ? `/api/workspaces/${workspace}/mambers` : null, fetcher);
-
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showCreateWorkspaceModal, setShowCreateWorkspaceModal] = useState(false);
   const [newWorkspace, onChangeNewWorkspace, setNewWorkpsace] = useInput('');
