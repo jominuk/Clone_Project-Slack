@@ -1,4 +1,4 @@
-import { IDM, IChat } from '@typings/db';
+import { IDM, IChat } from '@typings/types';
 import React, { VFC, memo } from 'react';
 import gravatar from 'gravatar';
 import { ChatWrapper } from './styles';

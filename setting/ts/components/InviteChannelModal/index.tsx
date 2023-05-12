@@ -5,7 +5,7 @@ import axios from 'axios';
 import React, { FC, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
-import { IUser } from '@typings/db';
+import { IUser } from '@typings/types';
 import fetcher from '@utils/fetcher';
 import useSWR from 'swr';
 

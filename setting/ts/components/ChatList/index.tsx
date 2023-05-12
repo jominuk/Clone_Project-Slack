@@ -1,6 +1,6 @@
 import React, { useCallback, forwardRef, MutableRefObject } from 'react';
 import { ChatZone, Section, StickyHeader } from './styles';
-import { IDM, IChat } from '@typings/db';
+import { IDM, IChat } from '@typings/types';
 import Chat from '@components/Chat';
 import { Scrollbars } from 'react-custom-scrollbars';
 

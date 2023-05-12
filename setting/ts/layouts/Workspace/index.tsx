@@ -5,7 +5,7 @@ import fetcher from '@utils/fetcher';
 import axios from 'axios';
 import { Redirect, Switch, Route, useParams } from 'react-router';
 import loadable from '@loadable/component';
-import { IChannel, IUser } from '@typings/db';
+import { IChannel, IUser } from '@typings/types';
 import { toast } from 'react-toastify';
 
 import {

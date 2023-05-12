@@ -1,4 +1,4 @@
-import { IDM, IChat } from '@typings/db';
+import { IDM, IChat } from '@typings/types';
 import dayjs from 'dayjs';
 
 export default function makeSection(chatList: (IDM | IChat)[]) {

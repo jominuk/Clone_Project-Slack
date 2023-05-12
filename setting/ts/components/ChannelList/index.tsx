@@ -1,5 +1,5 @@
 import { CollapseButton } from '@components/DMList/styles';
-import { IChannel, IUser } from '@typings/db';
+import { IChannel, IUser } from '@typings/types';
 import fetcher from '@utils/fetcher';
 import React, { FC, useCallback, useState } from 'react';
 import { useParams } from 'react-router';

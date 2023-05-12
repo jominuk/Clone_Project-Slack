@@ -6,7 +6,7 @@ import ChatBox from '@components/ChatBox';
 import ChatList from '@components/ChatList';
 import useInput from '@hooks/useinput';
 import fetcher from '@utils/fetcher';
-import { IChat, IUser, IChannel } from '@typings/db';
+import { IChat, IUser, IChannel } from '@typings/types';
 import useSocket from '@hooks/useSocket';
 import axios from 'axios';
 import makeSection from '@utils/makeSection';

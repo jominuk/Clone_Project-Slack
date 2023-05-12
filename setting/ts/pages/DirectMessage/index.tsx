@@ -8,7 +8,7 @@ import fetcher from '@utils/fetcher';
 import ChatBox from '@components/ChatBox';
 import useInput from '@hooks/useinput';
 import axios from 'axios';
-import { IDM } from '@typings/db';
+import { IDM } from '@typings/types';
 import ChatList from '@components/ChatList';
 import makeSection from '@utils/makeSection';
 import Scrollbars from 'react-custom-scrollbars';

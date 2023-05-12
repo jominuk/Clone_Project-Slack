@@ -4,7 +4,7 @@ import autosize from 'autosize';
 import { Mention, SuggestionDataItem } from 'react-mentions';
 import { useParams } from 'react-router';
 import useSWR from 'swr';
-import { IUser } from '@typings/db';
+import { IUser } from '@typings/types';
 import fetcher from '@utils/fetcher';
 import gravatar from 'gravatar';
 

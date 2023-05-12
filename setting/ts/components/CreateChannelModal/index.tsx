@@ -7,7 +7,7 @@ import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import fetcher from '@utils/fetcher';
 import useSWR from 'swr';
-import { IChannel, IUser } from '@typings/db';
+import { IChannel, IUser } from '@typings/types';
 
 interface Props {
   show: boolean;
