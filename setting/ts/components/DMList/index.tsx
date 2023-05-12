@@ -48,7 +48,7 @@ const DMList: FC = () => {
             aria-hidden="true"
           />
         </CollapseButton>
-        <span>Direct Messages</span>
+        <span>Direct Message</span>
       </h2>
       <div>
         {!channelCollapse &&

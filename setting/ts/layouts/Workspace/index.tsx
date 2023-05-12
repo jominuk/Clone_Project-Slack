@@ -80,15 +80,6 @@ const Workspace: VFC = () => {
       });
   }, [mutate]);
 
-  const onClickUserProfile = useCallback((e) => {
-    e.stopPropagation();
-    setShowUserMenu((prev) => !prev);
-  }, []);
-
-  const onClickCreateWorkspace = useCallback(() => {
-    setShowCreateWorkspaceModal(true);
-  }, []);
-
   const onCreateWorkspace = useCallback(
     (e) => {
       e.preventDefault();
@@ -120,24 +111,33 @@ const Workspace: VFC = () => {
     [newWorkspace, newUrl],
   );
 
-  const onCloseModal = useCallback(() => {
-    setShowCreateWorkspaceModal(false);
-    setShowCreateChannelModal(false);
-    setShowInviteWorkspaceModal(false);
-    setShowInviteChannelModal(false);
+  const onClickUserProfile = useCallback((e) => {
+    e.stopPropagation();
+    setShowUserMenu((prev) => !prev);
   }, []);
 
   const toggleWorkspaceModal = useCallback(() => {
     setShowWorkspaceModal((prev) => !prev);
   }, []);
 
+  const onClickCreateWorkspace = useCallback(() => {
+    setShowCreateWorkspaceModal(true);
+  }, []);
+
   const onClickAddChannel = useCallback(() => {
-    setShowCreateChannelModal(true);
+    setShowCreateChannelModal((prev) => !prev);
   }, []);
 
   const onClickInviteWorkspace = useCallback((e) => {
     e.preventDefault();
     setShowInviteWorkspaceModal(true);
+  }, []);
+
+  const onCloseModal = useCallback(() => {
+    setShowCreateWorkspaceModal(false);
+    setShowCreateChannelModal(false);
+    setShowInviteWorkspaceModal(false);
+    setShowInviteChannelModal(false);
   }, []);
 
   if (!userData) {
@@ -150,6 +150,7 @@ const Workspace: VFC = () => {
         <RightMenu>
           <span onClick={onClickUserProfile}>
             <ProfileImg src={gravatar.url(userData.email, { s: '28px', d: 'retro' })} alt={userData.nickname} />
+
             {showUserMenu && (
               <Menu style={{ right: 0, top: 38 }} show={showUserMenu} onCloseModal={onClickUserProfile}>
                 <ProfileModal>
@@ -174,13 +175,10 @@ const Workspace: VFC = () => {
               </Link>
             );
           })}
-          <AddButton onClick={onClickCreateWorkspace}>+</AddButton>
+          <AddButton onClick={onClickCreateWorkspace}> + </AddButton>
         </Workspaces>
         <Channels>
-          <WorkspaceName onClick={toggleWorkspaceModal}>
-            슬랙
-            {/* {userData?.Workspaces?.find()} */}
-          </WorkspaceName>
+          <WorkspaceName onClick={toggleWorkspaceModal}>슬랙</WorkspaceName>
           <MenuScroll>
             <Menu show={showWorkspaceModal} onCloseModal={toggleWorkspaceModal} style={{ top: 95, left: 80 }}>
               <WorkspaceModal>
@@ -190,9 +188,7 @@ const Workspace: VFC = () => {
                 <button onClick={onLogout}> 로그아웃 </button>
               </WorkspaceModal>
             </Menu>
-
             <ChannelList />
-
             <DMList />
           </MenuScroll>
         </Channels>
@@ -202,7 +198,6 @@ const Workspace: VFC = () => {
             <Route path="/workspace/:workspace/dm/:id" component={DirectMessage} />
           </Switch>
         </Chats>
-        {/* Input이 들어있으면 별도의 컴포넌트로 빼는 것을 추천(input에 글자를 입력할 때마다 여기 있는 함수들이 다 리렌더링 되기 때문에 비효율적) */}
       </WorkspaceWrapper>
       <Modal show={showCreateWorkspaceModal} onCloseModal={onCloseModal}>
         <form onSubmit={onCreateWorkspace}>
