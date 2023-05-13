@@ -132,7 +132,9 @@ const Channel = () => {
     return null;
   }
 
-  const chatSections = makeSection(chatData ? chatData.flat().reverse() : []);
+  const chatSections = makeSection(
+    chatData ? chatData.reduce((chatData, val) => chatData.concat(val), []).reverse() : [],
+  );
 
   return (
     <Container>
