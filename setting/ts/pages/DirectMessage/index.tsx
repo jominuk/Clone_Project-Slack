@@ -112,6 +112,7 @@ const DirectMessage = () => {
   useEffect(() => {
     if (chatData?.length === 1) {
       scrollbarRef.current?.scrollToBottom();
+      //scrollToBottom는 react-custom-scrollbars를 사용
     }
   }, [chatData]);
 

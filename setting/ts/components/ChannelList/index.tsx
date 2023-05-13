@@ -24,13 +24,7 @@ const ChannelList: FC = () => {
   return (
     <>
       <h2>
-        <CollapseButton collapse={channelCollapse} onClick={toggleChannelCollapse}>
-          <i
-            className="c-icon p-channel_sidebar__section_heading_expand p-channel_sidebar__section_heading_expand--show_more_feature c-icon--caret-right c-icon--inherit c-icon--inline"
-            data-qa="channel-section-collapse"
-            aria-hidden="true"
-          />
-        </CollapseButton>
+        <CollapseButton collapse={channelCollapse} onClick={toggleChannelCollapse}></CollapseButton>
         <span>Channels</span>
       </h2>
       <div>

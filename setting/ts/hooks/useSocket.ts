@@ -11,9 +11,11 @@ const useSocket = (workspace?: string): [Socket | undefined, () => void] => {
       delete sockets[workspace];
     }
   }, [workspace]);
+
   if (!workspace) {
     return [undefined, disconnect];
   }
+
   if (!sockets[workspace]) {
     sockets[workspace] = io(`${backUrl}/ws-${workspace}`, {
       transports: ['websocket'],

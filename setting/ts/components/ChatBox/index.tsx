@@ -41,27 +41,29 @@ const ChatBox: VFC<Props> = ({ chat, onSubmitForm, onChangeChat, placeholder }) 
     [onSubmitForm],
   );
 
-  const renderSuggestion = useCallback(
-    (
-      suggestion: SuggestionDataItem,
-      search: string,
-      highlightedDisplay: React.ReactNode,
-      index: number,
-      focus: boolean,
-    ): React.ReactNode => {
-      if (!memberData) return;
-      return (
-        <EachMention focus={focus}>
-          <img
-            src={gravatar.url(memberData[index].email, { s: '20px', d: 'retro' })}
-            alt={memberData[index].nickname}
-          />
-          <span>{highlightedDisplay}</span>
-        </EachMention>
-      );
-    },
-    [memberData],
-  );
+  console.log('Mention data:', memberData?.map((v) => ({ display: v.nickname, id: v.id })) || []);
+
+  // const renderSuggestion = useCallback(
+  //   (
+  //     suggestion: SuggestionDataItem,
+  //     search: string,
+  //     highlightedDisplay: React.ReactNode,
+  //     index: number,
+  //     focused: boolean,
+  //   ): React.ReactNode => {
+  //     if (!memberData) return;
+  //     return (
+  //       <EachMention focused={focused}>
+  //         <img
+  //           src={gravatar.url(memberData[index].email, { s: '20px', d: 'retro' })}
+  //           alt={memberData[index].nickname}
+  //         />
+  //         <span>{highlightedDisplay}</span>
+  //       </EachMention>
+  //     );
+  //   },
+  //   [memberData],
+  // );
 
   return (
     <ChatArea>
@@ -75,12 +77,7 @@ const ChatBox: VFC<Props> = ({ chat, onSubmitForm, onChangeChat, placeholder }) 
           inputRef={textareaRef}
           allowSuggestionsAboveCursor
         >
-          <Mention
-            appendSpaceOnAdd
-            trigger="@"
-            data={memberData?.map((v) => ({ id: v.id, display: v.nickname })) || []}
-            renderSuggestion={renderSuggestion}
-          />
+          <Mention trigger="@" data={memberData?.map((v) => ({ id: v.id, display: v.nickname })) || []} />
         </MentionsTextarea>
 
         <Toolbox>

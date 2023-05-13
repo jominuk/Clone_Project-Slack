@@ -59,16 +59,16 @@ const Workspace: VFC = () => {
 
   useEffect(() => {
     if (channelData && userData && socket) {
-      console.log(socket);
       socket.emit('login', { id: userData.id, channels: channelData.map((v) => v.id) });
     }
   }, [socket, channelData, userData]);
-
+  // 연결할 때
   useEffect(() => {
     return () => {
       disconnect();
     };
   }, [workspace, disconnect]);
+  // 연결 끊어줄때
 
   const onLogout = useCallback(() => {
     axios
