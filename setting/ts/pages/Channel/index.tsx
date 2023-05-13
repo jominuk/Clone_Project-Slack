@@ -48,7 +48,6 @@ const Channel = () => {
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
-      console.log('chat');
       if (chat?.trim() && chatData && channelData) {
         const savedChat = chat;
         mutateChat((prevChatData) => {

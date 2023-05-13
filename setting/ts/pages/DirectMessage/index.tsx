@@ -45,7 +45,6 @@ const DirectMessage = () => {
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
-      console.log('chat');
       if (chat?.trim() && chatData) {
         const savedChat = chat;
         mutateChat((prevChatData) => {

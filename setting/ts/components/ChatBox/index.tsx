@@ -41,8 +41,6 @@ const ChatBox: VFC<Props> = ({ chat, onSubmitForm, onChangeChat, placeholder }) 
     [onSubmitForm],
   );
 
-  console.log('Mention data:', memberData?.map((v) => ({ display: v.nickname, id: v.id })) || []);
-
   // const renderSuggestion = useCallback(
   //   (
   //     suggestion: SuggestionDataItem,

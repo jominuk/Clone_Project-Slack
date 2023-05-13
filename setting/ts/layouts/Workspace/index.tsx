@@ -59,6 +59,7 @@ const Workspace: VFC = () => {
 
   useEffect(() => {
     if (channelData && userData && socket) {
+      console.log(socket);
       socket.emit('login', { id: userData.id, channels: channelData.map((v) => v.id) });
     }
   }, [socket, channelData, userData]);
@@ -104,7 +105,6 @@ const Workspace: VFC = () => {
           setNewUrl('');
         })
         .catch((error) => {
-          console.log(error);
           toast.error(error.response?.data, { position: 'bottom-center' });
         });
     },
