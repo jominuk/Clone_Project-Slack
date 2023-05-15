@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useRef, VFC } from 'react';
 import { ChatArea, EachMention, Form, MentionsTextarea, SendButton, Toolbox } from './styles';
 import autosize from 'autosize';
-import { Mention, SuggestionDataItem } from 'react-mentions';
+import { Mention } from 'react-mentions';
 import { useParams } from 'react-router';
 import useSWR from 'swr';
 import { IUser } from '@typings/types';
 import fetcher from '@utils/fetcher';
-import gravatar from 'gravatar';
 
 interface Props {
   chat: string;
@@ -40,28 +39,6 @@ const ChatBox: VFC<Props> = ({ chat, onSubmitForm, onChangeChat, placeholder }) 
     },
     [onSubmitForm],
   );
-
-  // const renderSuggestion = useCallback(
-  //   (
-  //     suggestion: SuggestionDataItem,
-  //     search: string,
-  //     highlightedDisplay: React.ReactNode,
-  //     index: number,
-  //     focused: boolean,
-  //   ): React.ReactNode => {
-  //     if (!memberData) return;
-  //     return (
-  //       <EachMention focused={focused}>
-  //         <img
-  //           src={gravatar.url(memberData[index].email, { s: '20px', d: 'retro' })}
-  //           alt={memberData[index].nickname}
-  //         />
-  //         <span>{highlightedDisplay}</span>
-  //       </EachMention>
-  //     );
-  //   },
-  //   [memberData],
-  // );
 
   return (
     <ChatArea>

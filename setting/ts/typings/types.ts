@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export interface IUser {
   id: number;
   nickname: string;
@@ -43,4 +45,16 @@ export interface IWorkspace {
   name: string;
   url: string; // 주소 창에 보이는 주소
   OwnerId: number; // 워크스페이스 만든 사람 아이디
+}
+
+export interface MenuProps {
+  show: boolean;
+  onCloseModal: (e: any) => void;
+  style: CSSProperties;
+  closeButton?: boolean;
+}
+
+export interface ModalProps {
+  show: boolean;
+  onCloseModal: () => void;
 }

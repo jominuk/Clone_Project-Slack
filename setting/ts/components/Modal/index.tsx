@@ -1,11 +1,8 @@
 import React, { FC, useCallback } from 'react';
 import { CloseModalButton, CreateModal } from './sytles';
+import { ModalProps } from '@typings/types';
 
-interface Props {
-  show: boolean;
-  onCloseModal: () => void;
-}
-const Modal: FC<Props> = ({ show, children, onCloseModal }) => {
+const Modal: FC<ModalProps> = ({ show, children, onCloseModal }) => {
   const stopPropagation = useCallback((e) => {
     e.stopPropagation();
   }, []);

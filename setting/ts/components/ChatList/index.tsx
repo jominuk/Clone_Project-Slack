@@ -21,6 +21,7 @@ const ChatList = forwardRef<Scrollbars, Props>(({ chatSections, setSize, isReach
           current.scrollTop(current.getScrollHeight() - values.scrollHeight);
           console.log(current?.getScrollHeight(), values.scrollHeight);
           // 콘솔에 입력되는 숫자에서 앞쪽에는 전체 높이를 나타내주고 있고
+          // 또한 데이터를 더 가져온다면 총 높이를 추가로 더해서 나타내줌
           // 두 쪽 숫자는 현재 스크롤바의 위치를 나태내 주고 있음
         }
       });
